@@ -84,8 +84,10 @@
 		</div>
 		<div class="card" style="width: 18rem">
 			<div class="card-body">
-				<h5 class="card-title">Fruits List</h5>
-				<p class="card-text" id="fruitsList"></p>
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text"></p>
+				<input type="text" id="block--input"></input>
+				<button type="button" onclick="displayFruits()" class="btn btn-primary">Fruits List</button>
 			</div>
 		</div>
 	</div>
@@ -123,12 +125,9 @@
 		fview.innerHTML = fruits.toString();
 		}
 		
-	function fruitList(...args) {
-		const fview = document.getElementById("fruitsList");
-		let array =[...args];
-		fview.innerHTML = array;
+	let displayFruits = function(...fruits) {
+		window.alert(...fruits);
 		}
-	fruitList(...fruits)
 	</script>
 </body>
 </html>
