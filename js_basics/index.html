@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play With Cards</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">	
+	<style>
+	.block-head{
+		background-color: #93B5C6;
+		height: 8rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		}
+	.flex-container {
+  		display: flex;
+  		flex-wrap: wrap;
+  		}
+  	.card{
+  		margin: 20px;
+  		}
+  	.card-body{
+  		text-align: center;
+  		background-color:#E4D8DC ;
+  		}
+  	
+  	</style>
+</head>
+<body style="background-color:#C9CCD5">
+	<div class="block-head">
+	<h1>Play With Cards</h1>
+	</div>
+	<div class="flex-container">
+		<div class="card" style="width: 18rem">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text" id="card-1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<button type="button" onclick="changeText()" class="btn btn-primary">Change text</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem">
+			<div class="card-body" id="block--card2">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<button type="button" onclick="changeColor()" class="btn btn-primary">Change Color</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<button type="button" onclick="alertMessage()" class="btn btn-primary">Alert</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem" id="block--card4">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<button type="button" onclick="deleteMe()" class="btn btn-primary">Delete Me</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem" id="block--card5">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<button type="button" onclick="changeSize()" class="btn btn-primary">Change Size</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Hello there! How are you doing?</p>
+				<button type="button" onclick="stringLength()" class="btn btn-primary">Text Length</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text" id="arrayPush"></p>
+				<input type="text" id="block--input"></input>
+				<button type="button" onclick="addFruit()" class="btn btn-primary">Add Fruit</button>
+			</div>
+		</div>
+		<div class="card" style="width: 18rem">
+			<div class="card-body">
+				<h5 class="card-title">Fruits List</h5>
+				<p class="card-text" id="fruitsList"></p>
+			</div>
+		</div>
+	</div>
+	<script>
+	function changeText() {
+  		document.getElementById("card-1").innerHTML = "Hello there! How are you doing?";
+		}
+		
+	function changeColor() {
+		document.getElementById("block--card2").style.background = "#FFE3E3";
+		}
+		
+	const alertMessage = () => alert("Welcome Folks!");
+		
+	function deleteMe() {
+		document.getElementById("block--card4").remove()
+		}
+		
+	function changeSize() {
+		document.getElementById("block--card5").style.width = "22rem";
+		}
+		
+	function stringLength() {
+		text = "Hello there! How are you doing?";
+		var sl = text.length;
+		window.alert(sl);
+		}
+		
+	const fruits = ["Banana", "Orange", "Apple", "Mango"];
+	const fview = document.getElementById("arrayPush");
+	fview.innerHTML = fruits.toString();
+	function addFruit() {
+		let input = document.getElementById("block--input").value;
+		fruits.push(input);
+		fview.innerHTML = fruits.toString();
+		}
+		
+	function fruitList(...args) {
+		const fview = document.getElementById("fruitsList");
+		let array =[...args];
+		fview.innerHTML = array;
+		}
+	fruitList(...fruits)
+	</script>
+</body>
+</html>
