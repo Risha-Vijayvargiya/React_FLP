@@ -4,6 +4,12 @@ import AddItem from "./MyComponents/AddItem";
 import Cart from "./MyComponents/Cart";
 import Footer from "./MyComponents/Footer";
 import Home from "./MyComponents/Home";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
     const [items, setItems] = useState([
@@ -25,11 +31,33 @@ function App() {
     }
     return (
         <>
+        <Router>
             <Header title="Shop Here"/>
-            <Home/>
-            <AddItem addItem={addItem}/>
-            <Cart items={items} onDelete={onDelete}/>
+            <Switch>
+                <Route exact path="/React-FLP/" render={()=>{
+                    return(
+                        <>
+                        <Home/>
+                        </>)
+                }}>
+                </Route>
+                <Route exact path="/React-FLP/add_item" render={()=>{
+                    return(
+                        <>
+                        <AddItem addItem={addItem}/>
+                        </>)
+                }}>
+                </Route>
+                <Route exact path="/React-FLP/my_cart" render={()=>{
+                    return(
+                        <>
+                        <Cart items={items} onDelete={onDelete}/>
+                        </>)
+                }}>
+                </Route>                  
+            </Switch>
             <Footer/>
+        </Router>
         </>
     )
 }
