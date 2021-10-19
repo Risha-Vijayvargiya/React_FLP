@@ -1,13 +1,20 @@
 import { useState } from "react";
 import Header from "./MyComponents/Header";
-import Home from "./MyComponents/Home";
+import AddItem from "./MyComponents/AddItem";
 import Cart from "./MyComponents/Cart";
 import Footer from "./MyComponents/Footer";
+import Home from "./MyComponents/Home";
 
 function App() {
-    const addItem = (items)=>{
+    const [items, setItems] = useState([
+        {name:'bag'},
+        {name:'pen'},
+        {name: 'bottle'},
+        {name: 'eraser'},
+    ]);
+    const addItem = (item)=>{
         const myItem = {
-            items: items,
+            name: item,
         }
         setItems([...items, myItem]);
     }
@@ -16,16 +23,11 @@ function App() {
             return event!==item;
         }));
     }
-    const [items, setItems] = useState([
-        {name:'bag'},
-        {name:'pen'},
-        {name: 'bottle'},
-        {name: 'eraser'},
-    ]);
     return (
         <>
             <Header title="Shop Here"/>
-            <Home addItem={addItem}/>
+            <Home/>
+            <AddItem addItem={addItem}/>
             <Cart items={items} onDelete={onDelete}/>
             <Footer/>
         </>

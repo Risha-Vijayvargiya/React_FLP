@@ -1,36 +1,37 @@
-import { useState } from "react";
-import React from 'react'
-
-export default function Home(props) {
-    const [items, setItems] = useState("");
-
-    const handleChange = (event) => {
-    setItems(event.target.value)
+import React from "react";
+class Home extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {text: "Hello there!"};
     }
-
-    const submit = (event)=>{
-        event.preventDefault();
-        props.addItem(items);
+    shouldComponentUpdate() {
+      return true;
     }
-    return (
-        <div class="container">
-            <form onSubmit={submit}>
-                <select class="form-select" aria-label="Default select example" onChange={handleChange}>
-                    <option selected>Choose Item to add to Cart</option>
-                    <option value="Bag" id="item">Bag</option>
-                    <option value="Pen" id="item">Pen</option>
-                    <option value="Pencil" id="item">Pencil</option>
-                    <option value="Eraser" id="item">Eraser</option>
-                    <option value="Sharpner" id="item">Sharpner</option>
-                    <option value="Ruler" id="item">Ruler</option>
-                    <option value="Protactor" id="item">Protactor</option>
-                    <option value="Rounder" id="item">Rounder</option>
-                    <option value="Wax Crayon" id="item">Wax Crayon</option>
-                    <option value="Pencil Color" id="item">Pencil Color</option>
-                    <option value="Red Pen" id="item">Red Pen</option>
-                </select>
-                <button type="button" class="btn btn-primary">Add</button>
-            </form>
+    componentDidMount() {
+        setTimeout(() => {
+          this.setState({text: "Welcome"})
+        }, 3000)
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        document.getElementById("div1").innerHTML =
+        "Before the update, the text was " + prevState.text;
+    }
+    componentDidUpdate() {
+        document.getElementById("div2").innerHTML =
+        "The updated text is " + this.state.text;
+    }
+    changeText = () => {
+      this.setState({text: "Welcome Folks!"});
+    }
+    render() {
+      return (
+        <div>
+        <h1>{this.state.text}</h1>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <button type="button" onClick={this.changeText}>Change text</button>
         </div>
-    )
+    );
+    }
 }
+export default Home;
