@@ -19,17 +19,17 @@ export default function AddItem(props) {
             <form onSubmit={submit}>
                 <select class="form-select" aria-label="Default select example" onChange={handleChange}>
                     {/* <option selected>Choose Item to add to Cart</option> */}
-                    <option value="Bag" id="item">Bag</option>
-                    <option value="Pen" id="item">Pen</option>
-                    <option value="Pencil" id="item">Pencil</option>
-                    <option value="Eraser" id="item">Eraser</option>
-                    <option value="Sharpner" id="item">Sharpner</option>
-                    <option value="Ruler" id="item">Ruler</option>
-                    <option value="Protactor" id="item">Protactor</option>
-                    <option value="Rounder" id="item">Rounder</option>
-                    <option value="Wax Crayon" id="item">Wax Crayon</option>
-                    <option value="Pencil Color" id="item">Pencil Color</option>
-                    <option value="Red Pen" id="item">Red Pen</option>
+                    <option value="Bag">Bag</option>
+                    <option value="Pen">Pen</option>
+                    <option value="Pencil">Pencil</option>
+                    <option value="Eraser">Eraser</option>
+                    <option value="Sharpner">Sharpner</option>
+                    <option value="Ruler">Ruler</option>
+                    <option value="Protactor">Protactor</option>
+                    <option value="Rounder">Rounder</option>
+                    <option value="Wax Crayon">Wax Crayon</option>
+                    <option value="Pencil Color">Pencil Color</option>
+                    <option value="Red Pen">Red Pen</option>
                 </select>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

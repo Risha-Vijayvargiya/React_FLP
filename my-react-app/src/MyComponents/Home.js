@@ -1,4 +1,5 @@
 import React from "react";
+import HooksExample from "./HooksExample";
 class Home extends React.Component {
     constructor(props) {
       super(props);
@@ -23,14 +24,18 @@ class Home extends React.Component {
     changeText = () => {
       this.setState({text: "Welcome Folks!"});
     }
+    
     render() {
       return (
+        <>
         <div>
         <h1>{this.state.text}</h1>
         <div id="div1"></div>
         <div id="div2"></div>
         <button type="button" onClick={this.changeText}>Change text</button>
-        </div>
+        </div> 
+        <HooksExample/>
+        </>
     );
     }
 }

@@ -11,6 +11,8 @@ import {
   Route,
 } from "react-router-dom";
 
+export const UserContext = React.createContext()
+
 function App() {
     const [items, setItems] = useState([
         {name:'bag'},
@@ -36,23 +38,22 @@ function App() {
             <Switch>
                 <Route exact path="/React-FLP/" render={()=>{
                     return(
-                        <>
+                        <UserContext.Provider value={'Risha'}>
                         <Home/>
-                        </>)
+                        </UserContext.Provider>
+                    )
                 }}>
                 </Route>
                 <Route exact path="/React-FLP/add_item" render={()=>{
                     return(
-                        <>
                         <AddItem addItem={addItem}/>
-                        </>)
+                    )
                 }}>
                 </Route>
                 <Route exact path="/React-FLP/my_cart" render={()=>{
                     return(
-                        <>
                         <Cart items={items} onDelete={onDelete}/>
-                        </>)
+                    )
                 }}>
                 </Route>                  
             </Switch>
