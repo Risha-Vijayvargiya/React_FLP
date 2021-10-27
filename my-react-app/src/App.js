@@ -35,6 +35,7 @@ export function reducer(state={count:50}, action) {
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export const UserContext = React.createContext()
+export const MyContext = React.createContext();
 
 function App() {
     const [items, setItems] = useState([
@@ -61,11 +62,15 @@ function App() {
             <Switch>
                 <Route exact path="/React-FLP/" render={()=>{
                     return(
+                        <MyContext.Provider value={'Risha'}>
                         <Provider store={store}>
                         <UserContext.Provider value={'Risha'}>
+                        
                         <Home/>
+                        
                         </UserContext.Provider>
                         </Provider>
+                        </MyContext.Provider>
                     )
                 }}>
                 </Route>

@@ -2,6 +2,7 @@ import React from "react";
 import HooksExample from "./HooksExample";
 import ReduxCounter from "./ReduxCounter";
 import ThunkExample from "./ReduxThunkExample/ThunkExample";
+import ContextApiExample from "./ContextApiExample";
 class Home extends React.Component {
     constructor(props) {
       super(props);
@@ -43,6 +44,7 @@ class Home extends React.Component {
         <HooksExample/>
         <ReduxCounter/>
         <ThunkExample/>
+        <ContextApiExample/>
         </>
     );
     }
